@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-import getCurrentMonth from "../utils/dates";
-const currentMonth = getCurrentMonth();
 
 function Header({ title }){
     return (
@@ -14,11 +12,11 @@ function Header({ title }){
                         <Link to="/">Home</Link>
                     </nav>
                     <nav>
+                        <Link to="/allexpenses">Alla utgifter</Link>
+                    </nav>
+                    <nav>
                         <Link to="/alltransactions">Alla transaktioner</Link>
                     </nav>
-                </div>
-                <div className="date">
-                    <p>{currentMonth}</p>
                 </div>
             </div>
         </header>

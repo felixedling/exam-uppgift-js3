@@ -1,9 +1,12 @@
-import { months } from "../utils/dates";
+import { months } from "../utils/utils";
 
-function Transaction({description, amount, type, category, date}) {
+function Transaction({description, amount, type, date}) {
+    const sign = type === "inkomst" ? "+" : "-"
+    const colorClass = type === "inkomst" ? "income" : "expense"
+
     return (
         <li>
-            {description} - {amount} kr ({date.day} {months[date.month -1]})
+            {description} ({date.day} {months[date.month -1]}) <span className={colorClass}>{sign}{amount} kr</span>
         </li>
     )
 }

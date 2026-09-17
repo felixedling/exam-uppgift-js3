@@ -58,7 +58,6 @@ body {
   width: 1126px;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
   border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
@@ -94,7 +93,11 @@ h2 {
 p {
   margin: 0;
 }
-
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
 code,
 .counter {
   font-family: var(--mono);
@@ -115,7 +118,8 @@ code {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  margin: 10px;
+  margin: 20px;
+  border-bottom: 1px solid rgb(159, 157, 157);
 }
 
 .links {
@@ -124,8 +128,81 @@ code {
   justify-content: flex-start;
   align-items: center;
   gap: 10px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+}
+
+.income {
+  color: green;
+}
+
+.expense {
+  color: red;
+}
+
+.date {
+  display: flex;
+  margin: 10px;
+}
+
+.leftarrow, .rightarrow {
+  border: none;
+  background-color: rgb(214, 212, 212);
+  cursor: pointer;
+}
+
+.balanceContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 20px;
+  border: 1px solid rgb(159, 157, 157);
+  border-radius: 15px;
+}
+
+.balanceContainer div {
+  margin: 10px;
+}
+
+.contentContainer {
+  display: flex;
+  margin: 20px;
+}
+
+.expensesContainer {
+  width: 45vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-right: 1px solid rgb(159, 157, 157);
+}
+
+.transactionsContainer {
+  width: 45vw;
+}
+
+.transactionsContainer li, .transactionsContainer h3 {
+  margin-left: 20px;
+}
+
+.container {
+  margin: 30px;
+  border: 1px solid rgb(159, 157, 157);
+  background-color: rgb(214, 212, 212);
+  border-radius: 15px;
+}
+
+.expensesContainer li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 43vw;
+}
+
+.transactionsContainer li {
+  display: flex;
+  align-items: center;
+}
+
+.expense, .income {
+  margin-left: auto;
 }
 
