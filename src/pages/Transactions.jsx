@@ -13,16 +13,19 @@ function Transactions({ transactions, onAddTransaction }){
     })
 
     return (
-        <div>
+        <div className="container">
             <Header title="Alla transaktioner" />
             <TransactionForm onAddTransaction={onAddTransaction} transactions={transactions} />
             <input 
+                className="filterBtn"
                 type="text"
-                placeholder="filtrera"
+                placeholder="Välj månad"
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)} 
             />
-            <TransactionsList transactions={filteredTransactions} />
+            <div className="transactionsList">
+                <TransactionsList transactions={filteredTransactions} />
+            </div>
         </div>
     )
 }

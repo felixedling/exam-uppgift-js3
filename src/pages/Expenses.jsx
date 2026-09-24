@@ -8,7 +8,7 @@ function Expenses ({ transactions, selectedMonth, onPreviousMonth, onNextMonth }
     const filteredTransactions = filterByMonth(transactions, selectedMonth)
 
     return (
-        <div>
+        <div className="container">
             <Header title="Alla utgifter"/>
             <div className="date">
                 <button className="leftarrow" onClick={onPreviousMonth}><ArrowLeft/></button>

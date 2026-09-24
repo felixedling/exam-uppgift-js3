@@ -143,6 +143,10 @@ code {
   margin: 10px;
 }
 
+.date p {
+  color: black;
+}
+
 .leftarrow, .rightarrow {
   border: none;
   background-color: rgb(214, 212, 212);
@@ -206,3 +210,72 @@ code {
   margin-left: auto;
 }
 
+.addTransaction {
+  margin-bottom: 10px;
+}
+
+.addTransaction input, .addTransaction select {
+  gap: 5px;
+  margin-right: 5px;
+  border: 1px solid rgb(159, 157, 157);
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: #757575;
+  width: 13vw;
+}
+
+.addTransaction button {
+  border: 1px solid rgb(159, 157, 157);
+  border-radius: 8px;
+  padding: 8px 11px;
+  color: white;
+  background-color: rgb(64, 64, 251);
+  width: 15vw;
+  cursor: pointer;
+}
+
+.addTransaction {
+  margin-top: 10px;
+}
+
+.addTransactionContainer {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgb(159, 157, 157);
+}
+
+.filterBtn {
+  margin-left: 20px;
+  border: 1px solid rgb(159, 157, 157);
+  border-radius: 8px;
+  padding: 7px 10px;
+  width: 14vw;
+}
+
+.transactionsList {
+  margin: 20px;
+  border-top: 1px solid rgb(159, 157, 157);
+}
+
+.transactionsList ul {
+  margin-top: 10px;
+}
+
+.addTransaction input:hover, .addTransaction select:hover {
+  border-color: #c7c7c7;
+}
+
+.addTransaction input:focus, .addTransaction select:focus {
+  border-color: #6366f1;
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+}
+
+.category {
+  width: 10vw;
+}
+
+.total {
+  width: 7vw;
+}

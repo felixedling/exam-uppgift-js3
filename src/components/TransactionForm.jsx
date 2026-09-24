@@ -43,9 +43,9 @@ function TransactionForm ({ transactions, onAddTransaction }) {
     }
 
     return (
-        <section>
+        <section className="addTransactionContainer">
             <h2>Lägg till transaktion</h2>
-            <form onSubmit={handleSubmit}>
+            <form className="addTransaction" onSubmit={handleSubmit}>
                 <input 
                     type="text"
                     className="addTransaction"
