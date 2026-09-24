@@ -5,9 +5,9 @@ import { months } from "../utils/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { filterByMonth } from "../utils/utils";
 import ExpensesList from "../components/ExpensesList";
-import { getTotalExpensePerCategory } from "../components/Balance";
+import CurrencySelector from "../components/CurrencySelector";
 
-function Home({ transactions, selectedMonth, onPreviousMonth, onNextMonth }){
+function Home({ transactions, selectedMonth, onPreviousMonth, onNextMonth, currency, onCurrencyChange, exchangeRate }){
     const filteredTransactions = filterByMonth(transactions, selectedMonth)
 
     const latestTransactions = [...filteredTransactions]
@@ -21,22 +21,40 @@ function Home({ transactions, selectedMonth, onPreviousMonth, onNextMonth }){
     return (
         <div className="container">
             <Header title="Saldo"/>
-            <div className="date">
-                <button className="leftarrow" onClick={onPreviousMonth}><ArrowLeft/></button>
-                <p>{months[selectedMonth - 1]}</p>
-                <button className="rightarrow" onClick={onNextMonth}><ArrowRight/></button>
+            <div className="dateAndCurrency">
+                <div className="date">
+                    <button className="leftarrow" onClick={onPreviousMonth}><ArrowLeft/></button>
+                    <p>{months[selectedMonth - 1]}</p>
+                    <button className="rightarrow" onClick={onNextMonth}><ArrowRight/></button>
+                </div>
+                <div className="currency">
+                    <CurrencySelector currency={currency} onCurrencyChange={onCurrencyChange} />
+                </div>
             </div>
             <div className="balanceContainer">
-                <DisplayBalance transactions={filteredTransactions}/>
+                <DisplayBalance 
+                    transactions={filteredTransactions} 
+                    exchangeRate={exchangeRate} 
+                    currency={currency} 
+                />
             </div>
             <div className="contentContainer">
                 <div className="expensesContainer">
                     <h3>Utgifter per kategori</h3>
-                    <ExpensesList transactions={filteredTransactions} limit={4}/>
+                    <ExpensesList 
+                        transactions={filteredTransactions} 
+                        limit={4}
+                        exchangeRate={exchangeRate} 
+                        currency={currency} 
+                    />
                 </div>
                 <div className="transactionsContainer">
                     <h3>Senaste transaktioner</h3>
-                    <TransactionsList transactions={latestTransactions}/>
+                    <TransactionsList 
+                        transactions={latestTransactions}
+                        exchangeRate={exchangeRate} 
+                        currency={currency} 
+                    />
                 </div>
             </div>
         </div>

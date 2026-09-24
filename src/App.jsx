@@ -39,6 +39,21 @@ function App() {
     }
   }
 
+  const [currency, setCurrency] = useState('SEK')
+  const [exchangeRate, setExchangeRate] = useState(1)
+
+  useEffect(() => {
+    if (currency === 'SEK') {
+        setExchangeRate(1)
+        return
+    }
+
+    fetch(`https://api.frankfurter.dev/v2/rate/sek/${currency.toLowerCase()}`)
+        .then(res => res.json())
+        .then(data => setExchangeRate(data.rate))
+        .catch(error => console.error("Fel vid hämtning av växelkurs:", error))
+}, [currency])
+
   return (
     <Routes>
       <Route 
@@ -49,10 +64,23 @@ function App() {
             selectedMonth={selectedMonth}
             onPreviousMonth={previousMonth}
             onNextMonth={nextMonth}
+            currency={currency}
+            exchangeRate={exchangeRate}
+            onCurrencyChange={setCurrency}
           />
         }
       />
-      <Route path="/alltransactions" element={<Transactions transactions={allTransactions} onAddTransaction={handleAddTransaction}/>} />
+      <Route 
+        path="/alltransactions" 
+        element={
+          <Transactions 
+            transactions={allTransactions}
+            onAddTransaction={handleAddTransaction}
+            exchangeRate={exchangeRate}
+            currency={currency}
+          />
+        } 
+      />
       <Route 
         path="/allexpenses" 
         element={
@@ -61,6 +89,8 @@ function App() {
             selectedMonth={selectedMonth}
             onPreviousMonth={previousMonth}
             onNextMonth={nextMonth}
+            currency={currency}
+            exchangeRate={exchangeRate}
           />
         }
       />

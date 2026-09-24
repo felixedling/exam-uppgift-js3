@@ -7,3 +7,7 @@ export function getCurrentMonth() {
 export function filterByMonth(transactions, month) {
     return transactions.filter(t => t.date.month === month)
 }
+
+export function formatAmount(amount, exchangeRate, currency) {
+    return `${(amount * exchangeRate).toFixed(0)} ${currency}`
+}

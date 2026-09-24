@@ -48,7 +48,6 @@ function TransactionForm ({ transactions, onAddTransaction }) {
             <form className="addTransaction" onSubmit={handleSubmit}>
                 <input 
                     type="text"
-                    className="addTransaction"
                     placeholder="Beskrivning"
                     value={description}
                     onChange={(e) => setDescription(e.target.value)} 

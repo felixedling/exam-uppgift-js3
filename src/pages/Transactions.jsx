@@ -4,7 +4,7 @@ import TransactionForm from "../components/TransactionForm";
 import { useState } from "react";
 import { months } from "../utils/utils";
 
-function Transactions({ transactions, onAddTransaction }){
+function Transactions({ transactions, onAddTransaction, exchangeRate, currency }){
     const [searchTerm, setSearchTerm] = useState('')
     
     const filteredTransactions = transactions.filter(t => {
@@ -19,12 +19,16 @@ function Transactions({ transactions, onAddTransaction }){
             <input 
                 className="filterBtn"
                 type="text"
-                placeholder="Välj månad"
+                placeholder="Filtrera månad"
                 value={searchTerm}
                 onChange={e => setSearchTerm(e.target.value)} 
             />
             <div className="transactionsList">
-                <TransactionsList transactions={filteredTransactions} />
+                <TransactionsList 
+                    transactions={filteredTransactions}
+                    exchangeRate={exchangeRate}
+                    currency={currency}
+                />
             </div>
         </div>
     )

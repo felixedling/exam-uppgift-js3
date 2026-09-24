@@ -4,7 +4,7 @@ import { months } from "../utils/utils";
 import { filterByMonth } from "../utils/utils";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 
-function Expenses ({ transactions, selectedMonth, onPreviousMonth, onNextMonth }) {
+function Expenses ({ transactions, selectedMonth, onPreviousMonth, onNextMonth, exchangeRate, currency }) {
     const filteredTransactions = filterByMonth(transactions, selectedMonth)
 
     return (
@@ -15,7 +15,11 @@ function Expenses ({ transactions, selectedMonth, onPreviousMonth, onNextMonth }
                 <p>{months[selectedMonth - 1]}</p>
                 <button className="rightarrow" onClick={onNextMonth}><ArrowRight/></button>
             </div>
-            <ExpensesList transactions={filteredTransactions} />
+            <ExpensesList 
+                transactions={filteredTransactions}
+                exchangeRate={exchangeRate}
+                currency={currency}
+            />
         </div>
     )
 }

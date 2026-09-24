@@ -1,14 +1,14 @@
-import { getTotalExpensePerCategory } from "./Balance";
-import { getTotalExpense } from "./Balance";
+import { getTotalExpensePerCategory, getTotalExpense } from "./Balance";
+import { formatAmount } from "../utils/utils";
 
-function Expense ({ category, transactions }) {
+function Expense ({ category, transactions, exchangeRate, currency }) {
     const total = getTotalExpensePerCategory(transactions, category)
 
     return (
         <li>
             <span className="category">{category}</span>
             <progress value={total} className="progressBar" max={getTotalExpense(transactions)}></progress>
-            <span className="total">{total} kr</span>
+            <span className="total">{formatAmount(total, exchangeRate, currency)}</span>
         </li>
     )
 }

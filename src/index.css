@@ -140,6 +140,24 @@ code {
 
 .date {
   display: flex;
+}
+
+.currency {
+  margin-right: 10px;
+}
+
+.currency select {
+  border: 1px solid rgb(159, 157, 157);
+  border-radius: 8px;
+  padding: 7px 10px;
+  color: black;
+  background-color: rgb(214, 212, 212);
+}
+
+.dateAndCurrency {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin: 10px;
 }
 
@@ -173,9 +191,6 @@ code {
 
 .expensesContainer {
   width: 45vw;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
   border-right: 1px solid rgb(159, 157, 157);
 }
 
@@ -198,7 +213,6 @@ code {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 43vw;
 }
 
 .transactionsContainer li {
@@ -208,6 +222,7 @@ code {
 
 .expense, .income {
   margin-left: auto;
+  margin-right: 5px;
 }
 
 .addTransaction {
@@ -230,12 +245,14 @@ code {
   padding: 8px 11px;
   color: white;
   background-color: rgb(64, 64, 251);
-  width: 15vw;
   cursor: pointer;
+  flex-grow: 1;
 }
 
 .addTransaction {
-  margin-top: 10px;
+  margin-top: 20px;
+  margin-bottom: 15px;
+  display: flex;
 }
 
 .addTransactionContainer {
@@ -247,6 +264,7 @@ code {
 
 .filterBtn {
   margin-left: 20px;
+  margin-top: 5px;
   border: 1px solid rgb(159, 157, 157);
   border-radius: 8px;
   padding: 7px 10px;
@@ -258,15 +276,20 @@ code {
   border-top: 1px solid rgb(159, 157, 157);
 }
 
+.transactionsList li {
+  display: flex;
+  justify-content: space-between;
+}
+
 .transactionsList ul {
   margin-top: 10px;
 }
 
-.addTransaction input:hover, .addTransaction select:hover {
+.addTransaction input:hover, .addTransaction select:hover, cursor select:hover {
   border-color: #c7c7c7;
 }
 
-.addTransaction input:focus, .addTransaction select:focus {
+.addTransaction input:focus, .addTransaction select:focus, .currency select:focus {
   border-color: #6366f1;
   background: #fff;
   box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
@@ -277,5 +300,5 @@ code {
 }
 
 .total {
-  width: 7vw;
+  width: 10vw;
 }
